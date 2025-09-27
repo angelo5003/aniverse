@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client";
+import { graphql } from "../generated";
 
-export const GET_ANIME_DATA = gql`
+export const GET_ANIME_DATA = graphql(`
   query GetAnimeData(
     $page: Int = 1
     $id: Int
@@ -102,4 +102,4 @@ export const GET_ANIME_DATA = gql`
       }
     }
   }
-`;
+`);
