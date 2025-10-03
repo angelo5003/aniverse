@@ -1,6 +1,6 @@
+import { breakpoints } from "@/theme";
 import { Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { breakpoints } from "@/lib/breakpoints";
 
 export const NavBarContainer = styled(Flex)`
   position: fixed;

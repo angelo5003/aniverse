@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Provider as ChakraProvider } from "@/components/ui/provider";
-import { ThemeProvider } from "next-themes";
 import { ApolloClientProvider } from "@/components/ui/apollo-provider";
 import NavBar from "@/components/shared/Navbar/NavBar";
 import { Container } from "@chakra-ui/react";
@@ -18,21 +17,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ApolloClientProvider>
-            <ChakraProvider>
-              <Container>
-                <NavBar />
-                {children}
-              </Container>
-            </ChakraProvider>
-          </ApolloClientProvider>
-        </ThemeProvider>
+        <ApolloClientProvider>
+          <ChakraProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Container>
+              <NavBar />
+              {children}
+            </Container>
+          </ChakraProvider>
+        </ApolloClientProvider>
       </body>
     </html>
   );
