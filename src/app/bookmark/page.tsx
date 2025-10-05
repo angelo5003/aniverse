@@ -1,7 +1,7 @@
 import React from "react";
 
-const About: React.FC = () => {
-  return <div>About</div>;
+const Bookmark: React.FC = () => {
+  return <div>Bookmark</div>;
 };
 
-export default About;
+export default Bookmark;

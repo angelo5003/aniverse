@@ -26,6 +26,7 @@ export default function RootLayout({
           >
             <Container>
               <NavBar />
+
               {children}
             </Container>
           </ChakraProvider>
