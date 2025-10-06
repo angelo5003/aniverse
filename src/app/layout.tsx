@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Provider as ChakraProvider } from "@/components/ui/provider";
 import { ApolloClientProvider } from "@/components/ui/apollo-provider";
-import NavBar from "@/components/shared/Navbar/NavBar";
 import { Container } from "@chakra-ui/react";
+import NavBar from "@/components/shared/Navbar/NavBar";
 
 export const metadata: Metadata = {
   title: "Aniverse",
@@ -26,7 +26,6 @@ export default function RootLayout({
           >
             <Container>
               <NavBar />
-
               {children}
             </Container>
           </ChakraProvider>

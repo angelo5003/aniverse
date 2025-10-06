@@ -1,8 +1,8 @@
 import { breakpoints } from "@/theme";
-import { Flex, List } from "@chakra-ui/react";
+import { Box, Flex, List } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
-export const NavBarContainer = styled(Flex)`
+export const StyledNavBarContainer = styled(Flex)`
   position: fixed;
   left: -10px;
   right: -10px;
@@ -22,22 +22,10 @@ export const NavBarContainer = styled(Flex)`
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-
-  @media (min-width: ${breakpoints.md}) {
-    bottom: auto;
-    top: 0;
-    background-color: red;
-    padding: 1rem 2rem;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 90% 70%;
-    border-bottom-right-radius: 90% 70%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
 `;
 
 // Container for the navigation list - simple flexbox layout
-export const NavBarList = styled(List.Root)`
+export const StyledNavBarListContainer = styled(List.Root)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,18 +64,18 @@ export type NavItemIndexProps = {
 };
 
 // Individual navigation item with curved positioning
-export const NavBarListItem = styled(List.Item)<NavItemIndexProps>`
+export const StyledNavBarListItem = styled(List.Item)<NavItemIndexProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   will-change: transform; // Optimize for smooth animations
+  background-color: red;
 
   // Apply the curved transform - negative Y moves item UP
   transform: ${({ $index, $count, $amplitude }) =>
     `translateY(-${computeArcOffset($index, $count, $amplitude ?? 18)}px)`};
 
   transition: transform 150ms ease; // Smooth curve transitions
-  padding: 0.5rem;
   cursor: pointer;
 
   &:hover {
@@ -110,10 +98,17 @@ export const NavBarListItem = styled(List.Item)<NavItemIndexProps>`
       color: #ffffff;
     }
   `}
+`;
 
-  // Desktop navbar: items should curve DOWN (positive Y) to match top navbar
-  @media (min-width: ${breakpoints.md}) {
-    transform: ${({ $index, $count, $amplitude }) =>
-      `translateY(${computeArcOffset($index, $count, $amplitude ?? 18)}px)`};
-  }
+export const StyledActiveLinkLabelContainer = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: auto;
+  top: auto;
+  width: 100%;
+  background-color: #3c3533;
+  bottom: 0;
+  top: auto;
 `;
