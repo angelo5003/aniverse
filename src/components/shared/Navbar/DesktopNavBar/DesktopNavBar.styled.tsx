@@ -6,6 +6,6 @@ export const StyledDesktopNavBarContainer = styled(List.Root)`
   flex-direction: row;
   align-items: center;
   list-style: none;
-  width: 100%;
+  /* width: 100%; */
   justify-content: space-around;
 `;

@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { Provider as ChakraProvider } from "@/components/ui/provider";
 import { ApolloClientProvider } from "@/components/ui/apollo-provider";
 import { Container } from "@chakra-ui/react";
+import { Outfit } from "next/font/google";
 import NavBar from "@/components/shared/Navbar/NavBar";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Aniverse",
@@ -16,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={outfit.className}>
         <ApolloClientProvider>
           <ChakraProvider
             attribute="class"
@@ -24,10 +30,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Container>
-              <NavBar />
-              {children}
-            </Container>
+            <NavBar />
+            <Container>{children}</Container>
           </ChakraProvider>
         </ApolloClientProvider>
       </body>
