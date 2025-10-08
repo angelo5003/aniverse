@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import AniverseLogo from "../../../assets/aniverse-logo-transparant.svg";
 import { NavBarContainer } from "./NavBar.styled";
 
 const NavBar: React.FC = () => {
   return (
     <NavBarContainer>
-      <h1>Navbar</h1>
+      <AniverseLogo width={120} height={40} />
     </NavBarContainer>
   );
 };
